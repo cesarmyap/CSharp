@@ -1,0 +1,40 @@
+using BusinessManagementSystem.Models;
+using BusinessManagementSystem.Repositories;
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        var clientRepo = new ClientRepository();
+
+        // CREATE
+        var client = new Client
+        {
+            ClientName = "ABC Corporation",
+            Address = "123 Main St",
+            Phone = "555-1234",
+            Email = "info@abc.com",
+            CreatedAt = DateTime.Now
+        };
+        clientRepo.Add(client);
+        Console.WriteLine("Client added!");
+
+        // READ ALL
+        var clients = clientRepo.GetAll();
+        foreach (var c in clients)
+        {
+            Console.WriteLine($"{c.ClientId}: {c.ClientName} - {c.Email}");
+        }
+
+        // UPDATE
+        var firstClient = clients[0];
+        firstClient.Phone = "555-9999";
+        clientRepo.Update(firstClient);
+        Console.WriteLine("Client updated!");
+
+        // DELETE
+        clientRepo.Delete(firstClient.ClientId);
+        Console.WriteLine("Client deleted!");
+    }
+}
