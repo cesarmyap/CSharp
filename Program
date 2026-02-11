@@ -11,10 +11,10 @@ class Program
         // CREATE
         var client = new Client
         {
-            ClientName = "ABC Corporation",
-            Address = "123 Main St",
-            Phone = "555-1234",
-            Email = "info@abc.com",
+            ClientName = "CMY Corporation",
+            Address = "Guadalupe, Cebu City",
+            Phone = "+639761824023",
+            Email = "info@cmy.com",
             CreatedAt = DateTime.Now
         };
         clientRepo.Add(client);
@@ -29,7 +29,7 @@ class Program
 
         // UPDATE
         var firstClient = clients[0];
-        firstClient.Phone = "555-9999";
+        firstClient.Phone = "+639761824023";
         clientRepo.Update(firstClient);
         Console.WriteLine("Client updated!");
 
