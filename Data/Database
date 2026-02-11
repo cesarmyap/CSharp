@@ -1,0 +1,16 @@
+using System.Data.SQLite;
+
+namespace BusinessManagementSystem.Data
+{
+    public static class Database
+    {
+        private static string _connectionString = "Data Source=BusinessManagementSystem.db;Version=3;";
+
+        public static SQLiteConnection GetConnection()
+        {
+            var conn = new SQLiteConnection(_connectionString);
+            conn.Open();
+            return conn;
+        }
+    }
+}
